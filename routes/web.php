@@ -20,9 +20,17 @@ Route::get('/', function () {
 
 Route::prefix('admin')->group(function () {
     Route::view('/', 'admin.index');
+
     Route::resource('courses', 'CourseController');
-    Route::resource('groups', 'CourseController');
-    Route::resource('themes', 'CourseController');
+
+    Route::resource('groups', 'GroupController')->only([
+        'store', 'update', 'edit', 'show'
+    ]);   
+    
+    Route::get('groups/index/{course}','GroupController@index');
+    Route::get('groups/create/{course}','GroupController@create');
+
+    //Route::resource('themes', 'CourseController');
 
 
 });

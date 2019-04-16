@@ -12,7 +12,7 @@
         <div class="col-md-12">
         <br>
             <div class="table-responsive">
-                <table class="table table-bordered">
+                <table class="table table-bordered table-striped">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -30,7 +30,7 @@
                             <td>{{ $course->description }}</td>
                             <td>
 
-                                @if( $course->status == 1)
+                                @if( $course->status)
                                     <span class="badge badge-primary">Habilitado</span>
                                 @else
                                     <span class="badge badge-dangeer">Deshabilitado</span>
@@ -40,6 +40,7 @@
                             <td>
                                 <a href="/admin/courses/{{ $course->id }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
                                 <a href="/admin/courses/{{ $course->id }}/edit" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
+                                <a href="/admin/groups/index/{{ $course->id }}" class="btn btn-success btn-sm">grupos</a>
                             </td>
                         </tr>
                         @endforeach

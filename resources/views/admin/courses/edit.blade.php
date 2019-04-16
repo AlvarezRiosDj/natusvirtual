@@ -22,9 +22,10 @@
 
 <div class="row justify-content-md-center">
   <div class="col-md-4">
-        <div class="form-group">
-            <input type="submit" class="btn btn-success" value="Save">
-        </div>
+        <a href="/admin/courses" class="btn btn-primary">Lista</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" class="btn btn-success" value="Save">     
+        
     </div>
 </div>  
 {!!Form::close()!!}

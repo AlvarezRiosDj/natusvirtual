@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use App\Group;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreGroup;
 
 class GroupController extends Controller
 {
@@ -12,9 +14,12 @@ class GroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index(Course $course)
+    {   
+        
+        $groups = Group::orderBy('id', 'desc')->get();
+
+        return view('admin.groups.index',['course' => $course,'groups' => $groups]);
     }
 
     /**
@@ -22,9 +27,9 @@ class GroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Course $course)
     {
-        //
+        return view('admin.groups.create',['course'=>$course]);
     }
 
     /**
@@ -33,9 +38,11 @@ class GroupController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreGroup $request)
     {
-        //
+      
+        $group = Group::create($request->all());
+        //return redirect('admin/groups/show/'.$course->id);
     }
 
     /**

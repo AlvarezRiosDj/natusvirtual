@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreCourse;
 
 class CourseController extends Controller
 {
@@ -14,7 +15,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::all();
+        $courses = Course::orderBy('id', 'desc')->get();
         return view('admin.courses.index',['courses'=>$courses]);
     }
 
@@ -34,7 +35,7 @@ class CourseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCourse $request)
     {
         $course = Course::create($request->all());
         return redirect('admin/courses/'.$course->id);
@@ -48,7 +49,6 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-    
         return view('admin.courses.show',['course'=>$course]);
     }
 
@@ -70,7 +70,7 @@ class CourseController extends Controller
      * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course)
+    public function update(StoreCourse $request, Course $course)
     {
         $course->fill($request->all());
         $course->save();

@@ -1,6 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('content')
+@section('content')
 
 <br>
 <div class="row justify-content-md-center">
@@ -16,10 +17,12 @@
         @endif
     </div>
 </div>
-{!!Form::open(['url'=>'admin/courses'])!!}
+{!!Form::open(['url'=>'admin/groups'])!!}
 <div class="row justify-content-md-center">
+ 
     <div class="col-md-4">
         <div class="form-group">
+            <input type="text" name="course_id" value="{{ $course->id }}" hidden>
             {!!Form::label('name','Name')!!}
             {!!Form::text('name',null,['class'=>'form-control','required'])!!}
         </div>
@@ -42,5 +45,4 @@
     </div>
 </div>  
 {!!Form::close()!!}
-
 @endsection
