@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+
+Route::prefix('admin')->group(function () {
+    Route::view('/', 'admin.index');
+    Route::resource('courses', 'CourseController');
+    Route::resource('groups', 'CourseController');
+    Route::resource('themes', 'CourseController');
+
+
+});
