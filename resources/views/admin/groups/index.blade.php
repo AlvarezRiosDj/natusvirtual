@@ -9,7 +9,7 @@
        
     </div>
     <div class="col-md-2">
-        <a href="/admin/groups/create/{{ $course->id }}" class="btn btn-primary">Nuevo</a>
+        <a href="/admin/groups/create/{{ $course->id }}" class="btn btn-primary">New</a>
     </div>
 </div>
 <br>
@@ -21,7 +21,7 @@
                     <th>ID</th>
                     <th>NAME</th>
                     <th>DESCRIPTION</th>
-                    <th>ACCIONES</th>
+                    <th>ACTIONS</th>
                 </tr>
             </thead>
             <tbody>

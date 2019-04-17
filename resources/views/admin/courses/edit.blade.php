@@ -24,7 +24,7 @@
 
 <div class="row justify-content-md-center">
   <div class="col-md-4">
-        <a href="/admin/courses" class="btn btn-primary">Lista</a>
+        <a href="/admin/courses" class="btn btn-primary">List</a>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="submit" class="btn btn-success" value="Save">     
         

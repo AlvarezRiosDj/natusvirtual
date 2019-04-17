@@ -16,11 +16,11 @@ class CreateThemesTable extends Migration
         Schema::create('themes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name',50);
-            $table->longText('description');
+            $table->text('description');
             $table->boolean('status')->default(true);
             $table->timestamps();
             $table->unsignedBigInteger('group_id');
-            $table->foreign('group_id')->references('id')->on('themes');
+            $table->foreign('group_id')->references('id')->on('groups');
         });
     }
 

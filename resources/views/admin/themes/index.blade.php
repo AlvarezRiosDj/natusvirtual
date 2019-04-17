@@ -9,7 +9,7 @@
        
     </div>
     <div class="col-md-2">
-        <a href="/admin/themes/create/{{ $group->id }}" class="btn btn-primary">Nuevo</a>
+        <a href="/admin/themes/create/{{ $group->id }}" class="btn btn-primary">New</a>
     </div>
 </div>
 <br>
@@ -21,7 +21,7 @@
                     <th>ID</th>
                     <th>NAME</th>
                     <th>DESCRIPTION</th>
-                    <th>ACCIONES</th>
+                    <th>ACTIONS</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,7 +29,7 @@
                 <tr>
                     <td>{{ $theme->id }}</td>
                     <td>{{ $theme->name }}</td>
-                    <td>{{ $theme->description }}</td>
+                    <td>{!! $theme->description !!}</td>
                     <td>
                         <a href="/admin/themes/{{ $theme->id }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
                         <a href="/admin/themes/{{ $theme->id }}/edit" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>                        

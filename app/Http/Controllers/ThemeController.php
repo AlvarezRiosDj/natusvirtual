@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Group;
 use App\Theme;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreTheme;
 
 class ThemeController extends Controller
 {
@@ -24,9 +25,9 @@ class ThemeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Group $group)
     {
-        return "crearemos temas";
+        return view('admin.themes.create',['group'=>$group]);
     }
 
     /**
@@ -35,9 +36,10 @@ class ThemeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(StoreTheme $request)
+    {  
+        $theme = Theme::create($request->all());
+        return redirect('admin/themes/'.$theme->id);
     }
 
     /**
@@ -48,7 +50,7 @@ class ThemeController extends Controller
      */
     public function show(Theme $theme)
     {
-        //
+        return view('admin.themes.show',['theme'=>$theme]);
     }
 
     /**
@@ -59,7 +61,8 @@ class ThemeController extends Controller
      */
     public function edit(Theme $theme)
     {
-        //
+        return view('admin.themes.edit',['theme'=>$theme]);
+        
     }
 
     /**
@@ -71,7 +74,9 @@ class ThemeController extends Controller
      */
     public function update(Request $request, Theme $theme)
     {
-        //
+        $theme->fill($request->all());
+        $theme->save();
+        return redirect('admin/themes/'.$theme->id);
     }
 
     /**
