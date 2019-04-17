@@ -37,8 +37,7 @@ class GroupController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreGroup $request)
-    {
-      
+    {      
         $group = Group::create($request->all());
         return redirect('admin/groups/'.$group->id);
     }

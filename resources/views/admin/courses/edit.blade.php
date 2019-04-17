@@ -4,7 +4,7 @@
 <br>
 <h4 class="text-center">UPDATE COURSE</h4>
 <br>
-{!!Form::model($course, ['url' => ['admin/courses', $course->id],'method'=>'PUT'])!!}
+{!!Form::model($course, ['url' => ['admin/courses', $course->id],'method'=>'PUT','files'=>true])!!}
 <div class="row justify-content-md-center">
     <div class="col-md-4">
         <div class="form-group">
@@ -21,6 +21,23 @@
         </div>
     </div>
 </div>  
+
+<div class="row justify-content-md-center">
+  <div class="col-md-4">
+        <div class="form-group">
+            <label class="label">Image (*)</label>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="custom-file">
+                    <input type="file" name="image" id="docfile_edit" class="custom-file-input" id="inputGroupFile02">
+                    <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </div>
+</div>  
+
 
 <div class="row justify-content-md-center">
   <div class="col-md-4">

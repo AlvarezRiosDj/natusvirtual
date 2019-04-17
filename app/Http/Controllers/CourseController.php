@@ -37,7 +37,19 @@ class CourseController extends Controller
      */
     public function store(StoreCourse $request)
     {
-        $course = Course::create($request->all());
+        
+        $file =  $request->file('image');
+        $extension = $file->getClientOriginalExtension();
+        $fileName = time() . '.' . $extension;
+        $file->move(public_path('assets/content/'),$fileName);
+        $ruta = 'assets/content/'.$fileName;
+
+       
+        $course = Course::create([
+            'name'=>$request->name,
+            'description'=>$request->description,
+            'image'=>$ruta,
+        ]);
         return redirect('admin/courses/'.$course->id);
     }
 
@@ -72,7 +84,21 @@ class CourseController extends Controller
      */
     public function update(StoreCourse $request, Course $course)
     {
-        $course->fill($request->all());
+        if($request->image != null){
+            \File::delete(public_path($course->image));
+            $file =  $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $fileName = time() . '.' . $extension;
+            $size = $file->getClientSize();
+            $file->move(public_path('assets/content/'),$fileName);
+            $ruta = 'assets/content/'.$fileName;
+            $course->fill(['image'=>$ruta]);
+          }
+
+        $course->fill([
+            'name'=>$request->name,
+            'description'=>$request->description,            
+        ]);
         $course->save();
         return redirect('admin/courses/'.$course->id);
     }

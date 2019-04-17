@@ -17,7 +17,7 @@
         @endif
     </div>
 </div>
-{!!Form::open(['url'=>'admin/courses'])!!}
+{!!Form::open(['url'=>'admin/courses','files'=>true])!!}
 <div class="row justify-content-md-center">
     <div class="col-md-4">
         <div class="form-group">
@@ -34,6 +34,24 @@
         </div>
     </div>
 </div>  
+
+<div class="row justify-content-md-center">
+  <div class="col-md-4">
+        <div class="form-group">
+            <label class="label">Image (*)</label>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="custom-file">
+                    <input type="file" name="image" id="docfile_edit" class="custom-file-input" id="inputGroupFile02">
+                    <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </div>
+</div>  
+
+
 
 <div class="row justify-content-md-center">
   <div class="col-md-4">

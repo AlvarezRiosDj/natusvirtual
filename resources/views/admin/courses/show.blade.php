@@ -8,6 +8,8 @@
         <br>
     </div>
     <div class="col-md-4">
+        <img src="/{{ $course->image }}" width="100%" alt="">
+        <br><br>
         <p> <strong>Name:</strong> {{ $course->name }}</p>
         <p> <strong>Description: </strong> </p>        
         <p>{{ $course->description }}</p>
