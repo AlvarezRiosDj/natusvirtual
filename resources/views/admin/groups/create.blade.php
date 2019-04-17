@@ -2,7 +2,8 @@
 
 @section('content')
 @section('content')
-
+<br>
+<h4 class="text-center">CREATE GROUP</h4>
 <br>
 <div class="row justify-content-md-center">
     <div class="col-md-4">

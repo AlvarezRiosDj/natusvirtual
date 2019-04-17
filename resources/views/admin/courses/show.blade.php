@@ -4,6 +4,8 @@
 <div class="row justify-content-md-center">
     <div class="col-md-12">
         <br>
+            <h4 class="text-center">COURSE</h4> 
+        <br>
     </div>
     <div class="col-md-4">
         <p> <strong>Name:</strong> {{ $course->name }}</p>

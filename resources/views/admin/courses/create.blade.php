@@ -1,7 +1,8 @@
 @extends('admin.layouts.main')
 
 @section('content')
-
+<br>
+<h4 class="text-center">CREATE COURSE</h4>
 <br>
 <div class="row justify-content-md-center">
     <div class="col-md-4">

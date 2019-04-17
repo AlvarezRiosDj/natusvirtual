@@ -40,7 +40,7 @@
                             <td>
                                 <a href="/admin/courses/{{ $course->id }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
                                 <a href="/admin/courses/{{ $course->id }}/edit" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
-                                <a href="/admin/groups/index/{{ $course->id }}" class="btn btn-success btn-sm">grupos</a>
+                                <a href="/admin/groups/index/{{ $course->id }}" class="btn btn-primary btn-sm">grupos</a>
                             </td>
                         </tr>
                         @endforeach

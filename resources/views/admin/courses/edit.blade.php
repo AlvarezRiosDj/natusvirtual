@@ -2,6 +2,8 @@
 
 @section('content')
 <br>
+<h4 class="text-center">UPDATE COURSE</h4>
+<br>
 {!!Form::model($course, ['url' => ['admin/courses', $course->id],'method'=>'PUT'])!!}
 <div class="row justify-content-md-center">
     <div class="col-md-4">

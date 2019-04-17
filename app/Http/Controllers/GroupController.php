@@ -15,10 +15,8 @@ class GroupController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Course $course)
-    {   
-        
-        $groups = Group::orderBy('id', 'desc')->get();
-
+    {           
+        $groups = Group::where('course_id', $course->id)->orderBy('id', 'desc')->get();       
         return view('admin.groups.index',['course' => $course,'groups' => $groups]);
     }
 
@@ -42,7 +40,7 @@ class GroupController extends Controller
     {
       
         $group = Group::create($request->all());
-        //return redirect('admin/groups/show/'.$course->id);
+        return redirect('admin/groups/'.$group->id);
     }
 
     /**
@@ -53,7 +51,7 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        //
+        return view('admin.groups.show',['group'=>$group]);
     }
 
     /**
@@ -64,7 +62,7 @@ class GroupController extends Controller
      */
     public function edit(Group $group)
     {
-        //
+       return view('admin.groups.edit',['group'=>$group]);
     }
 
     /**
@@ -76,7 +74,11 @@ class GroupController extends Controller
      */
     public function update(Request $request, Group $group)
     {
-        //
+        
+        $group->fill($request->all());
+        $group->save();
+        return redirect('admin/groups/'.$group->id);
+
     }
 
     /**

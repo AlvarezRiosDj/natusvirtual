@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Group;
 use App\Theme;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,10 @@ class ThemeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Group $group)
     {
-        //
+        $themes = Theme::where('group_id', $group->id)->orderBy('id', 'desc')->get(); 
+        return view('admin.themes.index',['group'=>$group,'themes'=>$themes]);
     }
 
     /**
@@ -24,7 +26,7 @@ class ThemeController extends Controller
      */
     public function create()
     {
-        //
+        return "crearemos temas";
     }
 
     /**
