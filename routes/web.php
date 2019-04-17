@@ -18,7 +18,7 @@
 
 //Route::get('/', 'PublicController@index');
 Route::get('/cursos', 'PublicController@courses');
-Route::get('/curso', 'PublicController@course');
+Route::get('/curso/{course_id}', 'PublicController@course');
 Route::get('/{course}/{group}/tema', 'PublicController@theme');
 
 

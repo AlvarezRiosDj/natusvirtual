@@ -97,7 +97,8 @@ class CourseController extends Controller
 
         $course->fill([
             'name'=>$request->name,
-            'description'=>$request->description,            
+            'description'=>$request->description,   
+            'status'=>$request->status,         
         ]);
         $course->save();
         return redirect('admin/courses/'.$course->id);

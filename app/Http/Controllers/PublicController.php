@@ -16,16 +16,17 @@ class PublicController extends Controller
 
     public function courses()
     {
-        $courses = Course::orderBy('id', 'desc')->get();
+        $courses = Course::where('status',true)->orderBy('id', 'desc')->get();
         return view('public.courses.courses',['courses'=>$courses]);
     }
 
 
-    public function course()
+    public function course($course_id)
     {
-        return view('public.courses.course');
+        $course = Course::find($course_id);
+        $groups = Group::where('course_id',$course_id)->where('status',true)->get();       
+        return view('public.courses.course',['course'=>$course,'groups'=>$groups]);
     }
-
 
     public function theme()
     {

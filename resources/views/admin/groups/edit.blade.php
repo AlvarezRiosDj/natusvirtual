@@ -40,6 +40,16 @@
 </div>  
 
 <div class="row justify-content-md-center">
+    <div class="col-md-4">
+        <div class="form-group">            
+                {!!Form::label('status','Estado')!!}
+                {!!Form::select('status', ['1' => 'enabled', '0' => 'disabled'],null,['class'=>'form-control'])!!}
+        </div>
+    </div>
+</div>  
+
+
+<div class="row justify-content-md-center">
   <div class="col-md-4">
         <div class="form-group">
             <input type="submit" class="btn btn-success" value="Save">

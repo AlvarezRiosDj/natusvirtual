@@ -24,7 +24,7 @@
 
 <div class="row justify-content-md-center">
   <div class="col-md-4">
-        <div class="form-group">
+        
             <label class="label">Image (*)</label>
             <div class="form-group">
                 <div class="input-group mb-3">
@@ -34,10 +34,18 @@
                     </div>
                 </div>
                 </div>
-        </div>
+       
     </div>
 </div>  
 
+<div class="row justify-content-md-center">
+    <div class="col-md-4">
+        <div class="form-group">            
+                {!!Form::label('status','Estado')!!}
+                {!!Form::select('status', ['1' => 'enabled', '0' => 'disabled'],null,['class'=>'form-control'])!!}
+        </div>
+    </div>
+</div>  
 
 <div class="row justify-content-md-center">
   <div class="col-md-4">
