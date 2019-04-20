@@ -8,7 +8,8 @@ class Theme extends Model
 {
     protected $fillable =[
     	'name',
-    	'description',
+        'description',
+        'order',
         'status',
         'group_id',
     ];

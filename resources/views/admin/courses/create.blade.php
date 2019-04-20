@@ -42,7 +42,7 @@
         <div class="form-group">
             <div class="input-group mb-3">
                 <div class="custom-file">
-                <input type="file" name="image" id="docfile_edit" class="custom-file-input" id="inputGroupFile02">
+                <input type="file" name="image" class="custom-file-input" required>
                 <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
                 </div>
             </div>

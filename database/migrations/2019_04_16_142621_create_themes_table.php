@@ -17,6 +17,7 @@ class CreateThemesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name',50);
             $table->text('description');
+            $table->integer('order')->default(0);
             $table->boolean('status')->default(true);
             $table->timestamps();
             $table->unsignedBigInteger('group_id');
