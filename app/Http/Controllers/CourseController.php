@@ -37,12 +37,12 @@ class CourseController extends Controller
      */
     public function store(StoreCourse $request)
     {
-        
+        $anio = date("Y");
         $file =  $request->file('image');
         $extension = $file->getClientOriginalExtension();
         $fileName = time() . '.' . $extension;
-        $file->move(public_path('assets/content/'),$fileName);
-        $ruta = 'assets/content/'.$fileName;
+        $file->move(public_path('content/'.$anio.'/'),$fileName);
+        $ruta = 'content/'.$anio.'/'.$fileName;
 
        
         $course = Course::create([
@@ -83,18 +83,18 @@ class CourseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(StoreCourse $request, Course $course)
-    {
+    {   
+        $anio = date("Y");
         if($request->image != null){
             \File::delete(public_path($course->image));
             $file =  $request->file('image');
             $extension = $file->getClientOriginalExtension();
             $fileName = time() . '.' . $extension;
             $size = $file->getClientSize();
-            $file->move(public_path('assets/content/'),$fileName);
-            $ruta = 'assets/content/'.$fileName;
+            $file->move(public_path('content/'.$anio.'/'),$fileName);
+            $ruta = 'content/'.$anio.'/'.$fileName;
             $course->fill(['image'=>$ruta]);
           }
-
         $course->fill([
             'name'=>$request->name,
             'description'=>$request->description,   

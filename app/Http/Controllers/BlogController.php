@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreBlog;
+use Illuminate\Support\Facades\Auth;
+
 
 class BlogController extends Controller
 {
@@ -14,7 +17,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs = Blog::orderBy('id', 'desc')->get();
+        return view('admin.blogs.index',['blogs'=>$blogs]);
     }
 
     /**
@@ -24,7 +28,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.blogs.create');
     }
 
     /**
@@ -33,9 +37,23 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(StoreBlog $request)
+    {   
+        $anio = date("Y");       
+        $id_user = Auth::id();
+        $file =  $request->file('image');
+        $extension = $file->getClientOriginalExtension();
+        $fileName = time() . '.' . $extension;
+        $file->move(public_path('content/'.$anio.'/'),$fileName);
+        $ruta = 'content/'.$anio.'/'.$fileName;
+       
+        $blog = Blog::create([
+            'name'=>$request->name,
+            'description'=>$request->description,
+            'image'=>$ruta,
+            'user_id'=>$id_user,
+        ]);
+        return redirect('admin/blogs/'.$blog->id);
     }
 
     /**
@@ -46,7 +64,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        return view('admin.blogs.show',['blog'=>$blog]);
     }
 
     /**
@@ -57,7 +75,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        return view('admin.blogs.edit',['blog'=>$blog]);
     }
 
     /**
@@ -69,7 +87,29 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        $anio = date("Y");
+        $id_user = Auth::id();
+
+        if($request->image != null){
+            \File::delete(public_path($course->image));
+            $file =  $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $fileName = time() . '.' . $extension;
+            $size = $file->getClientSize();
+            $file->move(public_path('content/'.$anio.'/'),$fileName);
+            $ruta = 'content/'.$anio.'/'.$fileName;
+            $course->fill(['image'=>$ruta]);
+          }
+
+        $blog->fill([
+            'name'=>$request->name,
+            'description'=>$request->description,   
+            'status'=>$request->status,   
+            'user_id'=>$id_user,
+        ]);
+        $blog->save();
+        return redirect('admin/blogs/'.$blog->id);
+
     }
 
     /**

@@ -55,6 +55,11 @@ Route::prefix('admin')->group(function () {
     Route::get('themes/create/{group}','ThemeController@create');
     //------------------------------------------------//
 
+
+    Route::resource('blogs', 'BlogController');
+    Route::resource('comments', 'CommentController');
+
+
 });
 //-------- Fin de rutas admin ------------------------//
 

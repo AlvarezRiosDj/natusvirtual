@@ -4,6 +4,8 @@
     <div class="row">
         <div class="col-md-12">
             <br>
+            <h4 class="text-center">LIST COURSE</h4>
+            <br>
         </div>
         <div class="col-md-12">
             <a href="/admin/courses/create" class="btn btn-primary"> New</a>
