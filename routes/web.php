@@ -37,28 +37,30 @@ Route::view('/404','public.404');
 Auth::routes();
 
 Route::prefix('admin')->group(function () {
-    Route::view('/', 'admin.index');
 
-    Route::resource('courses', 'CourseController');
-    //------------------------------------------------//
-    Route::resource('groups', 'GroupController')->only([
-        'store', 'update', 'edit', 'show'
-    ]);       
-    Route::get('groups/index/{course}','GroupController@index');
-    Route::get('groups/create/{course}','GroupController@create');
-   //------------------------------------------------//
+    Route::group(['middleware' => ['auth']], function () {
+        Route::view('/', 'admin.index');  
+        Route::resource('courses', 'CourseController');
+        //------------------------------------------------//
+        Route::resource('groups', 'GroupController')->only([
+            'store', 'update', 'edit', 'show'
+        ]);       
+        Route::get('groups/index/{course}','GroupController@index');
+        Route::get('groups/create/{course}','GroupController@create');
+        //------------------------------------------------//
 
-    Route::resource('themes', 'ThemeController')->only([
-        'store', 'update', 'edit', 'show'
-    ]);   
-    Route::get('themes/index/{group}','ThemeController@index');
-    Route::get('themes/create/{group}','ThemeController@create');
-    //------------------------------------------------//
+        Route::resource('themes', 'ThemeController')->only([
+            'store', 'update', 'edit', 'show'
+        ]);   
+        Route::get('themes/index/{group}','ThemeController@index');
+        Route::get('themes/create/{group}','ThemeController@create');
+        //------------------------------------------------//
 
 
-    Route::resource('blogs', 'BlogController');
-    Route::resource('comments', 'CommentController');
+        Route::resource('blogs', 'BlogController');
+        Route::resource('comments', 'CommentController');
 
+    });   
 
 });
 //-------- Fin de rutas admin ------------------------//
