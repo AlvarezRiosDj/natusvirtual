@@ -24,7 +24,7 @@ class StoreTheme extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:5|max:50',
+            'name' => 'required|min:3|max:50',
             'description' => 'required|min:5',
         ];
     }

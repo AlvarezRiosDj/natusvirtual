@@ -26,7 +26,9 @@
         <!-- Section Heading -->
         <div class="col-12">
             <div class="section-heading text-center">
-            <h2>{{ $course->name }}</h2>
+                <h2>{{ $course->name }}</h2>
+                <img src="/{{ $course->image }}" alt="" width="100%">
+                <br><br>
                 <p>{{ $course->description }}</p>
             </div>
         </div>
@@ -37,12 +39,12 @@
                 </div>
                 <div class="alert alert-light" role="alert">
                     <ul>
-                        <li><a href="">asdfadf</a></li>
-                        <li><a href="">asdfadf</a></li>
-                        <li><a href="">asdfadf</a></li>
-                        <li><a href="">asdfadf</a></li>
-                        <li><a href="">asdfadf</a></li>
-                        <li><a href="">asdfadf</a></li>
+                        @foreach($themes as $theme)
+                            @if($theme->group_id == $group->id)
+                                <li><a href="">{{ $theme->name }}</a></li>
+                            @endif                            
+                        @endforeach
+                        
                     </ul>
                 </div>
             @endforeach

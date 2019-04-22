@@ -19,7 +19,7 @@
 //Route::get('/', 'PublicController@index');
 Route::get('/cursos', 'PublicController@courses');
 Route::get('/curso/{course_id}', 'PublicController@course');
-Route::get('/{course}/{group}/tema', 'PublicController@theme');
+Route::get('/{course}/{theme_id}', 'PublicController@theme');
 
 Route::view('/', 'public.index');
 Route::view('/single-blog', 'public.single_blog');

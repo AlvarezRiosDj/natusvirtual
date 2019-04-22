@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use App\Group;
+use App\Theme;
+
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
@@ -25,12 +27,14 @@ class PublicController extends Controller
     {
         $course = Course::find($course_id);
         $groups = Group::where('course_id',$course_id)->where('status',true)->get();       
-        return view('public.courses.course',['course'=>$course,'groups'=>$groups]);
+        $themes = Theme::all();
+        return view('public.courses.course',['course'=>$course,'groups'=>$groups,'themes'=>$themes]);
     }
 
-    public function theme()
+    public function theme($theme_id)
     {
-        return view('public.courses.theme');
+        $theme = Theme::find($theme_id);
+        return view('public.courses.theme',['theme'=>$theme]);
     }
 
 }
