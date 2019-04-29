@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Course;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCourse;
+use Illuminate\Support\Str;
 
 class CourseController extends Controller
 {
@@ -14,7 +15,7 @@ class CourseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {           
         $courses = Course::orderBy('id', 'desc')->get();
         return view('admin.courses.index',['courses'=>$courses]);
     }
@@ -44,11 +45,14 @@ class CourseController extends Controller
         $file->move(public_path('content/'.$anio.'/'),$fileName);
         $ruta = 'content/'.$anio.'/'.$fileName;
 
+        $slug = Str::slug($request->name, '-');
+
        
         $course = Course::create([
             'name'=>$request->name,
             'description'=>$request->description,
             'image'=>$ruta,
+            'slug'=>$slug,
         ]);
         return redirect('admin/courses/'.$course->id);
     }
@@ -95,9 +99,13 @@ class CourseController extends Controller
             $ruta = 'content/'.$anio.'/'.$fileName;
             $course->fill(['image'=>$ruta]);
           }
+
+        $slug = Str::slug($request->name, '-');
+
         $course->fill([
             'name'=>$request->name,
-            'description'=>$request->description,   
+            'description'=>$request->description,
+            'slug'=>$slug,   
             'status'=>$request->status,         
         ]);
         $course->save();

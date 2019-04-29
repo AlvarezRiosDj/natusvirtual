@@ -10,6 +10,7 @@ class Course extends Model
     	'name',
 		'description',
 		'image',
+		'slug',
     	'status',
     ];
 }

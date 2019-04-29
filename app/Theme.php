@@ -10,6 +10,7 @@ class Theme extends Model
     	'name',
         'description',
         'order',
+        'slug',
         'status',
         'group_id',
     ];

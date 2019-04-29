@@ -18,6 +18,7 @@ class CreateCoursesTable extends Migration
             $table->string('name',50);
             $table->string('description',1000);
             $table->string('image',1000);
+            $table->string('slug',100);
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

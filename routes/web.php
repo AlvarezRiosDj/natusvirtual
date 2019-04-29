@@ -18,9 +18,9 @@
 
 //Route::get('/', 'PublicController@index');
 Route::get('/cursos', 'PublicController@courses');
-Route::get('/curso/{course_id}', 'PublicController@course');
-Route::get('/{course}/{theme_id}', 'PublicController@theme');
 
+Route::get('/curso/{course_id}', 'PublicController@course');
+//Route::get('/{course}/{theme_id}', 'PublicController@theme');
 Route::view('/', 'public.index');
 Route::view('/single-blog', 'public.single_blog');
 Route::view('/about', 'public.about');
@@ -34,12 +34,13 @@ Route::view('/404','public.404');
 
 // ------- Rutas admin ---------------//
 
-Auth::routes();
 
 Route::prefix('admin')->group(function () {
-
+    
     Route::group(['middleware' => ['auth']], function () {
+        
         Route::view('/', 'admin.index');  
+        
         Route::resource('courses', 'CourseController');
         //------------------------------------------------//
         Route::resource('groups', 'GroupController')->only([
@@ -66,5 +67,5 @@ Route::prefix('admin')->group(function () {
 //-------- Fin de rutas admin ------------------------//
 
 
-
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

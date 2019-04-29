@@ -6,6 +6,7 @@ use App\Course;
 use App\Group;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreGroup;
+use Illuminate\Support\Str;
 
 class GroupController extends Controller
 {
@@ -37,7 +38,8 @@ class GroupController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreGroup $request)
-    {      
+    {    
+        $request['slug'] = Str::slug($request->name, '-'); 
         $group = Group::create($request->all());
         return redirect('admin/groups/'.$group->id);
     }
@@ -73,7 +75,7 @@ class GroupController extends Controller
      */
     public function update(Request $request, Group $group)
     {
-        
+        $request['slug'] = Str::slug($request->name, '-'); 
         $group->fill($request->all());
         $group->save();
         return redirect('admin/groups/'.$group->id);

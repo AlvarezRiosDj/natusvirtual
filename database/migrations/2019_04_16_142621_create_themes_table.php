@@ -19,6 +19,7 @@ class CreateThemesTable extends Migration
             $table->text('description');
             $table->integer('order')->default(0);
             $table->boolean('status')->default(true);
+            $table->string('slug',100);
             $table->timestamps();
             $table->unsignedBigInteger('group_id');
             $table->foreign('group_id')->references('id')->on('groups');

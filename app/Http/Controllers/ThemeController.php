@@ -6,6 +6,9 @@ use App\Group;
 use App\Theme;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreTheme;
+use Illuminate\Support\Str;
+
+
 
 class ThemeController extends Controller
 {
@@ -37,7 +40,8 @@ class ThemeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreTheme $request)
-    {  
+    {   
+        $request['slug'] = Str::slug($request->name, '-');
         $theme = Theme::create($request->all());
         return redirect('admin/themes/'.$theme->id);
     }
@@ -73,7 +77,8 @@ class ThemeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Theme $theme)
-    {
+    {   
+        $request['slug'] = Str::slug($request->name, '-');
         $theme->fill($request->all());
         $theme->save();
         return redirect('admin/themes/'.$theme->id);

@@ -10,6 +10,7 @@ class Group extends Model
     	'name',
 			'description',
 			'order',
+			'slug',
 			'status',
 			'course_id',
     ];
