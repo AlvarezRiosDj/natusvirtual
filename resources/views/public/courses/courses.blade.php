@@ -31,18 +31,15 @@
             </div>
         </div>
         @foreach($courses as $course)
-             <div class="col-4">
-            
+             <div class="col-4">            
                 <div class="card mb-3">
                     <h3 class="card-header">{{ $course->name }}</h3>
                     
-                    <img style="height: 200px; width: 100%; display: block;" src="/{{ $course->image }}" alt="Card image">
+                   <a href="/curso/{{ $course->slug }}"><img style="height: 200px; width: 100%; display: block;" src="/{{ $course->image }}" alt="Card image"></a> 
                     <div class="card-body">
                         <p class="card-text">{{ $course->description }}</p>
-                    </div>
-                
-                </div>           
-
+                    </div>                
+                </div>   
             </div>  
         @endforeach
 

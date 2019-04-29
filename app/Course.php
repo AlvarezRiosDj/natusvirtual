@@ -12,5 +12,12 @@ class Course extends Model
 		'image',
 		'slug',
     	'status',
-    ];
+	];
+	
+	public function groups()
+    {
+        return $this->hasMany('App\Group');
+	}
+	
+
 }

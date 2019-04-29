@@ -19,15 +19,15 @@
 //Route::get('/', 'PublicController@index');
 Route::get('/cursos', 'PublicController@courses');
 
-Route::get('/curso/{course_id}', 'PublicController@course');
+Route::get('/curso/{course_slug}', 'PublicController@course');
 //Route::get('/{course}/{theme_id}', 'PublicController@theme');
 Route::view('/', 'public.index');
-Route::view('/single-blog', 'public.single_blog');
-Route::view('/about', 'public.about');
-Route::view('/coming-soon', 'public.coming_soon');
-Route::view('/hosting','public.hosting');
-Route::view('/blog','public.blog');
-Route::view('/404','public.404');
+// Route::view('/single-blog', 'public.single_blog');
+// Route::view('/about', 'public.about');
+// Route::view('/coming-soon', 'public.coming_soon');
+// Route::view('/hosting','public.hosting');
+// Route::view('/blog','public.blog');
+// Route::view('/404','public.404');
 // ------ Fin de rutas publicas-------//
 
 

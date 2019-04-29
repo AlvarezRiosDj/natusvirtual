@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Course;
 use App\Group;
 use App\Theme;
+use DB;
 
 use Illuminate\Http\Request;
 
@@ -17,17 +18,25 @@ class PublicController extends Controller
 
 
     public function courses()
-    {
+    {           
         $courses = Course::where('status',true)->orderBy('id', 'desc')->get();
         return view('public.courses.courses',['courses'=>$courses]);
     }
 
 
-    public function course($course_id)
+    public function course($course_slug)
     {
-        $course = Course::find($course_id);
-        $groups = Group::where('course_id',$course_id)->where('status',true)->get();       
-        $themes = Theme::all();
+        $course = Course::where('slug',$course_slug)->first();   
+       
+        $groups = Course::find($course->id)->groups; 
+        //$themes = Theme::all();
+
+        $themes = DB::table('themes')
+        ->join('groups','group_id','=','groups.id')
+        ->join('courses','groups.course_id','=','courses.id')
+        ->where('courses.id',$course->id)
+        ->get();
+ 
         return view('public.courses.course',['course'=>$course,'groups'=>$groups,'themes'=>$themes]);
     }
 

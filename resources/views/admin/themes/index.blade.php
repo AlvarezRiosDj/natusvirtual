@@ -20,7 +20,6 @@
                 <tr>
                     <th>ID</th>
                     <th>NAME</th>
-                    <th>DESCRIPTION</th>
                     <th>ACTIONS</th>
                 </tr>
             </thead>
@@ -29,7 +28,6 @@
                 <tr>
                     <td>{{ $theme->id }}</td>
                     <td>{{ $theme->name }}</td>
-                    <td>{!! $theme->description !!}</td>
                     <td>
                         <a href="/admin/themes/{{ $theme->id }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
                         <a href="/admin/themes/{{ $theme->id }}/edit" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>                        

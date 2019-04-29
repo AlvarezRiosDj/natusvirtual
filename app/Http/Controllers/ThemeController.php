@@ -19,7 +19,7 @@ class ThemeController extends Controller
      */
     public function index(Group $group)
     {
-        $themes = Theme::where('group_id', $group->id)->orderBy('id', 'desc')->get(); 
+        $themes = $group->themes;       
         return view('admin.themes.index',['group'=>$group,'themes'=>$themes]);
     }
 

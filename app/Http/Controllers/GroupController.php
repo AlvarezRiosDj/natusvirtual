@@ -16,8 +16,9 @@ class GroupController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Course $course)
-    {           
-        $groups = Group::where('course_id', $course->id)->orderBy('id', 'desc')->get();       
+    {    
+        
+        $groups = $course->groups;   
         return view('admin.groups.index',['course' => $course,'groups' => $groups]);
     }
 

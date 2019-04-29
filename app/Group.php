@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
+
     protected $fillable =[
     	'name',
 			'description',
@@ -13,5 +14,12 @@ class Group extends Model
 			'slug',
 			'status',
 			'course_id',
-    ];
+	];
+
+	public function themes()
+    {
+        return $this->hasMany('App\Theme');
+	}
+
+
 }
