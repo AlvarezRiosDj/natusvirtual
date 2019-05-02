@@ -29,7 +29,7 @@
                     <!-- Single Blog Post Area -->
                     <div class="single-blog-post mb-50">
                         <!-- Post Date -->
-                        <span class="post-date">December 9, 2018</span>
+                        <span class="post-date">{{ $blog->updated_at }}</span>
                         <!-- Post Title -->
                         <a href="#" class="post-title">{{ $blog->name }}</a>
                         <!-- Post Thumbnail -->
@@ -40,7 +40,7 @@
                             <a href="#" class="post-tutorial">Tutorials</a>
                         </div>
                         <p>{{ $blog->description_short }}</p>
-                        <a href="#" class="btn continue-btn">Continue Reading <i class="arrow_right"></i></a>
+                        <a href="/blog/{{ $blog->slug }}" class="btn continue-btn">Continuar leyendo <i class="arrow_right"></i></a>
                     </div>
                     @endforeach
                  

@@ -28,6 +28,7 @@ Route::view('/', 'public.index');
 // Route::view('/coming-soon', 'public.coming_soon');
 // Route::view('/hosting','public.hosting');
 Route::get('/blog','PublicController@blog');
+Route::get('/blog/{blog_slug}','PublicController@blog_detalle');
 // Route::view('/404','public.404');
 // ------ Fin de rutas publicas-------//
 

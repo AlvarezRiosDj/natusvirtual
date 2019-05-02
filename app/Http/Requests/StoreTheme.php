@@ -26,7 +26,6 @@ class StoreTheme extends FormRequest
         return [
             'name' => 'required|min:3|max:50',
             'description' => 'required|min:5',
-            'description_short' => 'required|min:5',
         ];
     }
 }

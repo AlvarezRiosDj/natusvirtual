@@ -27,9 +27,9 @@
                 <div class="col-12 col-lg-10">
                     <div class="post-content">
                         <div class="post-meta">
-                            <a href="#" class="post-date">December 9, 2018</a>
+                            <a href="#" class="post-date">{{ $blog->updated_at }}</a>
                         </div>
-                        <h2 class="post-title">7 Trends Dominating Content Marketing in 2018</h2>
+                        <h2 class="post-title">{{ $blog->name }}</h2>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="post-thumbnail mb-50">
-                        <img src="assets/public/img/bg-img/18.jpg" alt="">
+                        <img src="/{{ $blog->image }}" alt="">
                     </div>
                 </div>
             </div>
@@ -45,36 +45,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
                     <div class="blog-details-text">
-                        <p>Projecting surrounded literature yet delightful alteration but bed men. Open are from long why cold. If must snug by upon sang loud left. As me do preference entreaties compliment motionless ye literature. Day behaviour explained law remainder. Produce can cousins account you pasture. Peculiar delicate an pleasant provided do perceive.</p>
-
-                        <p>It sportsman earnestly ye preserved an on. Moment led family sooner cannot her window pulled any. Or raillery if improved landlord to speaking hastened differed he. Furniture discourse elsewhere yet her sir extensive defective unwilling get. Why resolution one motionless you him thoroughly. Noise is round to in it quick timed doors. Written address greatly get attacks inhabit pursuit our but. Lasted hunted enough an up seeing in lively letter. Had judgment out opinions property the supplied.</p>
-
-                        <p>Old there any widow law rooms. Agreed but expect repair she nay sir silent person. Direction can dependent one bed situation attempted. His she are man their spite avoid. Her pretended fulfilled extremely education yet. Satisfied did one admitting incommode tolerably how are.</p>
-
-                        <!-- Blockquote -->
-                        <blockquote class="hami-blockquote d-flex">
-                            <div class="icon">
-                                <img src="assets/public/img/core-img/quote.png" alt="">
-                            </div>
-                            <div class="text">
-                                <h4>“Be passionate about your company’s culture and your mission. Remain positive because it inspires others.”</h4>
-                                <h5>– Arthur Vaughn</h5>
-                            </div>
-                        </blockquote>
-
-                        <h2 class="mb-4">5 Easy Ways to Write an Irresistible Introduction</h2>
-
-                        <p>It sportsman earnestly ye preserved an on. Moment led family sooner cannot her window pulled any. Or raillery if improved landlord to speaking hastened differed he. Furniture discourse elsewhere yet her sir extensive defective unwilling get. Why resolution one motionless you him thoroughly. Noise is round to in it quick timed doors.</p>
-
-                        <ul>
-                            <li><span><i class="fa fa-circle" aria-hidden="true"></i> How your staff greets them?</span> The ambience of your Salon &amp; Spa is crucial in making the first impression. The initial vibes that your customer feels when they enter is what stays with them. It’s important that you make these vibes as positive as possible as it has a sub-conscious effect on the customer.</li>
-
-                            <li><span><i class="fa fa-circle" aria-hidden="true"></i> Humans not Robots:</span> Train your staff to treat customers like family. Take special care that their interaction with the customer isn’t robotic and the overall interaction is as human as possible.</li>
-
-                            <li><span><i class="fa fa-circle" aria-hidden="true"></i> Remember ‘The Name’:</span> Regular customers don’t like to enter a Salon &amp; Spa and explain all their preferences again. Remember what they like, remember their dislikes, and most importantly, remember their name.</li>
-                        </ul>
-
-                        <p>Old there any widow law rooms. Agreed but expect repair she nay sir silent person. Direction can dependent one bed situation attempted. His she are man their spite avoid. Her pretended fulfilled extremely education yet. Satisfied did one admitting incommode tolerably how are.</p>
+                      {!! $blog->description !!}
                     </div>
 
                     <!-- Post Author Area -->

@@ -55,4 +55,10 @@ class PublicController extends Controller
     }
 
 
+    public function blog_detalle($blog_slug)
+    {
+        $blog = Blog::where('slug',$blog_slug)->first();
+        return view('public.blogs.blog',['blog'=>$blog]);
+    }
+
 }
