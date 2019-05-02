@@ -32,6 +32,7 @@ class PublicController extends Controller
         //$themes = Theme::all();
 
         $themes = DB::table('themes')
+        ->select('themes.*')
         ->join('groups','group_id','=','groups.id')
         ->join('courses','groups.course_id','=','courses.id')
         ->where('courses.id',$course->id)
@@ -40,9 +41,9 @@ class PublicController extends Controller
         return view('public.courses.course',['course'=>$course,'groups'=>$groups,'themes'=>$themes]);
     }
 
-    public function theme($theme_id)
+    public function theme($course_slug,$group_slug,$theme_slug)
     {
-        $theme = Theme::find($theme_id);
+        $theme = Theme::where('slug',$theme_slug)->first();
         return view('public.courses.theme',['theme'=>$theme]);
     }
 

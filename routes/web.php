@@ -20,6 +20,7 @@
 Route::get('/cursos', 'PublicController@courses');
 
 Route::get('/curso/{course_slug}', 'PublicController@course');
+Route::get('/curso/{course_slug}/{group_slug}/{theme_slug}', 'PublicController@theme');
 //Route::get('/{course}/{theme_id}', 'PublicController@theme');
 Route::view('/', 'public.index');
 // Route::view('/single-blog', 'public.single_blog');

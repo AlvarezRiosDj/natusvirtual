@@ -41,7 +41,7 @@
                     <ul>
                         @foreach($themes as $theme)
                             @if($theme->group_id == $group->id)
-                                <li><a href="">{{ $theme->name }}</a></li>
+                                <li><a href="/curso/{{ $course->slug }}/{{ $group->slug }}/{{ $theme->slug }}">{{ $theme->name }}</a></li>
                             @endif                            
                         @endforeach
                         
