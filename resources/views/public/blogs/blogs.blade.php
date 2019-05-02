@@ -25,74 +25,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-7 col-lg-8">
-
+                    @foreach($blogs as $blog)
                     <!-- Single Blog Post Area -->
                     <div class="single-blog-post mb-50">
                         <!-- Post Date -->
                         <span class="post-date">December 9, 2018</span>
                         <!-- Post Title -->
-                        <a href="#" class="post-title">7 Trends Dominating Content Marketing in 2018</a>
+                        <a href="#" class="post-title">{{ $blog->name }}</a>
                         <!-- Post Thumbnail -->
-                        <img class="post-thumbnail" src="assets/public/img/bg-img/14.jpg" alt="">
+                        <img class="post-thumbnail" src="/{{ $blog->image }}" alt="">
                         <!-- Post Meta -->
                         <div class="post-meta">
                             <a href="#" class="post-author">By Admin</a>
                             <a href="#" class="post-tutorial">Tutorials</a>
                         </div>
-                        <p>Vestibulum lacus erat, pharetra et sodales ut, porta sit amet nibh. Sed vestibulum lacinia quam, vel iaculis nunc condimentum eget. Aliquam in mi pharetra, molestie augue ac, fermentum orci.</p>
+                        <p>{{ $blog->description_short }}</p>
                         <a href="#" class="btn continue-btn">Continue Reading <i class="arrow_right"></i></a>
                     </div>
-
-                    <!-- Single Blog Post Area -->
-                    <div class="single-blog-post mb-50">
-                        <!-- Post Date -->
-                        <span class="post-date">December 9, 2018</span>
-                        <!-- Post Title -->
-                        <a href="#" class="post-title">5 Creative Ways to Find Things to Write About</a>
-                        <!-- Post Thumbnail -->
-                        <img class="post-thumbnail" src="assets/public/img/bg-img/15.jpg" alt="">
-                        <!-- Post Meta -->
-                        <div class="post-meta">
-                            <a href="#" class="post-author">By Admin</a>
-                            <a href="#" class="post-tutorial">Tutorials</a>
-                        </div>
-                        <p>Vestibulum lacus erat, pharetra et sodales ut, porta sit amet nibh. Sed vestibulum lacinia quam, vel iaculis nunc condimentum eget. Aliquam in mi pharetra, molestie augue ac, fermentum orci.</p>
-                        <a href="#" class="btn continue-btn">Continue Reading <i class="arrow_right"></i></a>
-                    </div>
-
-                    <!-- Single Blog Post Area -->
-                    <div class="single-blog-post mb-50">
-                        <!-- Post Date -->
-                        <span class="post-date">December 9, 2018</span>
-                        <!-- Post Title -->
-                        <a href="#" class="post-title">The 7-Step Guide to Creating Amazing Cornerstone Content</a>
-                        <!-- Post Thumbnail -->
-                        <img class="post-thumbnail" src="assets/public/img/bg-img/16.jpg" alt="">
-                        <!-- Post Meta -->
-                        <div class="post-meta">
-                            <a href="#" class="post-author">By Admin</a>
-                            <a href="#" class="post-tutorial">Tutorials</a>
-                        </div>
-                        <p>Vestibulum lacus erat, pharetra et sodales ut, porta sit amet nibh. Sed vestibulum lacinia quam, vel iaculis nunc condimentum eget. Aliquam in mi pharetra, molestie augue ac, fermentum orci.</p>
-                        <a href="#" class="btn continue-btn">Continue Reading <i class="arrow_right"></i></a>
-                    </div>
-
-                    <!-- Single Blog Post Area -->
-                    <div class="single-blog-post mb-50">
-                        <!-- Post Date -->
-                        <span class="post-date">December 9, 2018</span>
-                        <!-- Post Title -->
-                        <a href="#" class="post-title">5 Easy Ways to Write an Irresistible Introduction</a>
-                        <!-- Post Thumbnail -->
-                        <img class="post-thumbnail" src="assets/public/img/bg-img/17.jpg" alt="">
-                        <!-- Post Meta -->
-                        <div class="post-meta">
-                            <a href="#" class="post-author">By Admin</a>
-                            <a href="#" class="post-tutorial">Tutorials</a>
-                        </div>
-                        <p>Vestibulum lacus erat, pharetra et sodales ut, porta sit amet nibh. Sed vestibulum lacinia quam, vel iaculis nunc condimentum eget. Aliquam in mi pharetra, molestie augue ac, fermentum orci.</p>
-                        <a href="#" class="btn continue-btn">Continue Reading <i class="arrow_right"></i></a>
-                    </div>
+                    @endforeach
+                 
 
                     <!-- Pagination -->
                     <nav class="hami-pagination mb-50">

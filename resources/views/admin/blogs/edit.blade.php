@@ -23,20 +23,31 @@
 </div>  
 
 <div class="row justify-content-md-center">
-  <div class="col-md-4">
-        
-            <label class="label">Image (*)</label>
-            <div class="form-group">
-                <div class="input-group mb-3">
-                    <div class="custom-file">
-                    <input type="file" name="image" id="docfile_edit" class="custom-file-input" id="inputGroupFile02">
-                    <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
-                    </div>
+  <div class="col-md-4">        
+        <label class="label">Image (*)</label>
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="custom-file">
+                <input type="file" name="image" id="docfile_edit" class="custom-file-input" id="inputGroupFile02">
+                <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
                 </div>
-                </div>
-       
+            </div>
+        </div>
     </div>
 </div>  
+
+
+
+<div class="row justify-content-md-center">
+  <div class="col-md-4">
+        <div class="form-group">
+            {!!Form::label('description_short','Description Short')!!}
+            {!!Form::textarea('description_short',null,['class'=>'form-control','rows'=>'3','required'])!!}
+        </div>
+    </div>
+</div>  
+
+
 
 <div class="row justify-content-md-center">
     <div class="col-md-4">

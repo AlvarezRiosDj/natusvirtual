@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Course;
 use App\Group;
 use App\Theme;
+use App\Blog;
 use DB;
 
 use Illuminate\Http\Request;
@@ -46,5 +47,12 @@ class PublicController extends Controller
         $theme = Theme::where('slug',$theme_slug)->first();
         return view('public.courses.theme',['theme'=>$theme]);
     }
+
+    public function blog()
+    {
+        $blogs = Blog::all();
+        return view('public.blogs.blogs',['blogs'=>$blogs]);
+    }
+
 
 }

@@ -6,7 +6,7 @@ use App\Blog;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreBlog;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -46,12 +46,16 @@ class BlogController extends Controller
         $fileName = time() . '.' . $extension;
         $file->move(public_path('content/'.$anio.'/'),$fileName);
         $ruta = 'content/'.$anio.'/'.$fileName;
-       
+        
+        $slug = Str::slug($request->name, '-');
+
         $blog = Blog::create([
             'name'=>$request->name,
             'description'=>$request->description,
             'image'=>$ruta,
             'user_id'=>$id_user,
+            'description_short'=>$request->description_short,
+            'slug'=>$slug
         ]);
         return redirect('admin/blogs/'.$blog->id);
     }
@@ -100,12 +104,16 @@ class BlogController extends Controller
             $ruta = 'content/'.$anio.'/'.$fileName;
             $course->fill(['image'=>$ruta]);
           }
+        
+        $slug = Str::slug($request->name, '-');
 
         $blog->fill([
             'name'=>$request->name,
             'description'=>$request->description,   
             'status'=>$request->status,   
             'user_id'=>$id_user,
+            'description_short'=>$request->description_short,
+            'slug'=>$slug
         ]);
         $blog->save();
         return redirect('admin/blogs/'.$blog->id);
